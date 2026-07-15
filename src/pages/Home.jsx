@@ -110,8 +110,8 @@ const Home = () => {
               
               <div className="flex gap-2">
                 {[
-                  { key: 'demo', label: 'Demo Project' },
-                  { key: 'active', label: 'Active Project' }
+                  { key: 'demo', label: `Demo Project (${demoWebsites.length})` },
+                  { key: 'active', label: `Active Project (${activeWebsites.length})` }
                 ].map(tab => (
                   <motion.button
                     key={tab.key}
