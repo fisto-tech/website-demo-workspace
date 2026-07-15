@@ -103,10 +103,10 @@ const Home = () => {
 
         {/* Header Row */}
         <div className="mb-8 md:mb-10">
-          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-4 xl:gap-5">
 
             {/* Title + Tabs */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap order-1">
               <h2 className="text-3xl font-bold text-textPrimary tracking-tight">Websites</h2>
               <div className="flex gap-2">
                 {[
@@ -129,8 +129,8 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Search / Filter + Add Button */}
-            <div className="flex flex-wrap gap-3 items-center justify-end w-full md:w-auto md:flex-1">
+            {/* Search / Filter */}
+            <div className="flex flex-wrap gap-3 items-center justify-start xl:justify-end w-full xl:w-auto xl:flex-1 order-3 xl:order-2 mt-2 xl:mt-0">
               <AnimatePresence mode="wait">
                 {activeTab === 'demo' ? (
                   <motion.div
@@ -139,7 +139,7 @@ const Home = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-wrap gap-3 items-center justify-end flex-1 min-w-[200px]"
+                    className="flex  gap-3 items-center justify-start xl:justify-end flex-1 min-w-[200px]"
                   >
                     {/* Category Dropdown */}
                     <div className="relative w-full sm:w-auto shrink-0">
@@ -208,7 +208,7 @@ const Home = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-wrap gap-3 items-center justify-end flex-1 min-w-[200px]"
+                    className="flex gap-3 items-center justify-start xl:justify-end flex-1 min-w-[200px]"
                   >
                     {/* Active Category Dropdown */}
                     <div className="relative w-full sm:w-auto shrink-0">
@@ -272,21 +272,23 @@ const Home = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
 
-              {/* + Add Button — admin only */}
-              {isAdmin && (
+            {/* + Add Button — admin only */}
+            {isAdmin && (
+              <div className="order-2 xl:order-3 ml-auto xl:ml-0 shrink-0">
                 <motion.button
                   id="add-website-btn"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsAddModalOpen(true)}
-                  className="shrink-0 flex items-center justify-center gap-1.5 px-5 py-2.5 bg-primary hover:bg-primary-dark text-background text-xs font-bold tracking-widest uppercase rounded-full transition-colors shadow-[0_0_15px_rgba(197,160,89,0.25)] w-full sm:w-auto ml-auto md:ml-0"
+                  className="flex items-center justify-center gap-1.5 px-5 py-2.5 bg-primary hover:bg-primary-dark text-background text-xs font-bold tracking-widest uppercase rounded-full transition-colors shadow-[0_0_15px_rgba(197,160,89,0.25)] w-auto"
                 >
                   <FiPlus size={14} />
                   Add
                 </motion.button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
