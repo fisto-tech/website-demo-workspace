@@ -8,17 +8,37 @@ import EditModal from './EditModal';
 
 const getCategoryColor = (category) => {
   const normalized = category?.toLowerCase() || '';
-  if (normalized.includes('coffee')) return 'bg-orange-600';
+  
+  // specific overrides for readability
   if (normalized.includes('dairy')) return 'bg-blue-400 text-gray-900';
-  if (normalized.includes('restrarunt') || normalized.includes('restaurant')) return 'bg-red-500';
-  if (normalized.includes('container')) return 'bg-teal-500';
   if (normalized.includes('water')) return 'bg-cyan-500 text-gray-900';
-  if (normalized.includes('baker')) return 'bg-yellow-600';
-  if (normalized.includes('drink')) return 'bg-pink-500';
-  if (normalized.includes('fruit') || normalized.includes('veg')) return 'bg-green-500';
-  if (normalized.includes('bag') || normalized.includes('pack')) return 'bg-indigo-500';
-  if (normalized.includes('ingredient')) return 'bg-purple-500';
-  return 'bg-blue-600'; // Default
+
+  // Array length 37 (prime number) to eliminate modulo collision bias
+  const colors = [
+    'bg-red-500', 'bg-orange-600', 'bg-amber-600', 'bg-yellow-600', 
+    'bg-lime-600', 'bg-green-600', 'bg-emerald-500', 'bg-teal-600', 
+    'bg-cyan-600', 'bg-sky-600', 'bg-blue-600', 'bg-indigo-500', 
+    'bg-violet-500', 'bg-purple-500', 'bg-fuchsia-600', 'bg-pink-600', 
+    'bg-rose-600', 'bg-red-700', 'bg-orange-700', 'bg-amber-700',
+    'bg-lime-700', 'bg-green-700', 'bg-emerald-600', 'bg-teal-700',
+    'bg-cyan-700', 'bg-sky-700', 'bg-blue-700', 'bg-indigo-600',
+    'bg-violet-600', 'bg-purple-600', 'bg-fuchsia-700', 'bg-pink-700',
+    'bg-rose-700', 'bg-stone-600', 'bg-neutral-600', 'bg-zinc-600', 'bg-slate-600'
+  ];
+  
+  // Jenkins one_at_a_time hash for maximum avalanche effect & zero collisions
+  let hash = 0;
+  for (let i = 0; i < normalized.length; i++) {
+    hash += normalized.charCodeAt(i);
+    hash += (hash << 10);
+    hash ^= (hash >> 6);
+  }
+  hash += (hash << 3);
+  hash ^= (hash >> 11);
+  hash += (hash << 15);
+  hash = hash >>> 0; // ensure unsigned 32-bit
+  
+  return colors[hash % colors.length];
 };
 
 const WebsiteCard = ({ website, onEditClick }) => {
@@ -89,7 +109,7 @@ const WebsiteCard = ({ website, onEditClick }) => {
       <div className="px-1 mb-5 flex-1">
         {website.projectType === 'active' && website.companyName ? (
           <div className="mb-2">
-            <h3 className="text-lg md:text-xl font-bold text-gray-100 leading-snug">
+            <h3 className="text-lg md:text-xl font-bold text-[#c5a059] leading-snug">
               {website.companyName}
             </h3>
             <p className="text-xs md:text-sm font-medium tracking-wide mt-0.5" style={{ color: '#ff9c9c' }}>

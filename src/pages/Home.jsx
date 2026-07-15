@@ -77,8 +77,8 @@ const Home = () => {
       <select
         value={sortBy}
         onChange={e => setSortBy(e.target.value)}
-        className="relative z-0 appearance-none w-full pl-4 pr-9 py-3 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-base transition-all duration-300 cursor-pointer"
-        style={{ background: 'rgba(30,30,30,0.8)' }}
+        className="relative z-0 appearance-none w-full pl-4 pr-9 py-3 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-base transition-all duration-300 cursor-pointer"
+        style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
       >
         <option value="None">Sort By: None</option>
         <option value="Category Wise">Category Wise</option>
@@ -107,7 +107,7 @@ const Home = () => {
 
             {/* Title + Tabs */}
             <div className="flex items-center gap-3 flex-wrap order-1">
-              <h2 className="text-3xl font-bold text-textPrimary tracking-tight">Websites</h2>
+              
               <div className="flex gap-2">
                 {[
                   { key: 'demo', label: 'Demo Project' },
@@ -120,7 +120,7 @@ const Home = () => {
                     className={`px-4 py-1.5 rounded-full text-[13px] font-bold tracking-widest uppercase transition-all duration-300 ${
                       activeTab === tab.key
                         ? 'bg-primary text-background shadow-md shadow-primary/20'
-                        : 'border border-border/50 text-textSecondary hover:border-primary/50 hover:text-primary'
+                        : 'border border-white/20 bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary hover:border-primary/50 hover:text-primary'
                     }`}
                   >
                     {tab.label}
@@ -147,8 +147,8 @@ const Home = () => {
                         id="demo-category-filter"
                         value={demoCategory}
                         onChange={e => setDemoCategory(e.target.value)}
-                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[140px] pl-4 pr-8 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
-                        style={{ background: 'rgba(30,30,30,0.8)' }}
+                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[140px] pl-4 pr-8 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
+                        style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
                       >
                         <option value="">All Categories</option>
                         {demoCategories.map(cat => (
@@ -168,7 +168,7 @@ const Home = () => {
                       <input
                         id="demo-search-input"
                         type="text"
-                        className="relative z-0 block w-full pl-10 pr-9 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl placeholder-textSecondary text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300"
+                        className="relative z-0 block w-full pl-10 pr-9 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] placeholder-textSecondary text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300"
                         placeholder="Search name..."
                         value={demoSearch}
                         onChange={e => setDemoSearch(e.target.value)}
@@ -189,8 +189,8 @@ const Home = () => {
                       <select
                         value={sortBy}
                         onChange={e => setSortBy(e.target.value)}
-                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[130px] pl-4 pr-8 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
-                        style={{ background: 'rgba(30,30,30,0.8)' }}
+                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[130px] pl-4 pr-8 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
+                        style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
                       >
                         <option value="None">Sort By: None</option>
                         <option value="Category Wise">Category Wise</option>
@@ -216,8 +216,8 @@ const Home = () => {
                         id="active-category-filter"
                         value={activeCategory}
                         onChange={e => setActiveCategory(e.target.value)}
-                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[140px] pl-4 pr-8 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
-                        style={{ background: 'rgba(30,30,30,0.8)' }}
+                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[140px] pl-4 pr-8 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
+                        style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
                       >
                         <option value="">All Categories</option>
                         {activeCategories.map(cat => (
@@ -237,7 +237,7 @@ const Home = () => {
                       <input
                         id="active-search-input"
                         type="text"
-                        className="relative z-0 block w-full pl-10 pr-9 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl placeholder-textSecondary text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300"
+                        className="relative z-0 block w-full pl-10 pr-9 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] placeholder-textSecondary text-textPrimary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300"
                         placeholder="Search..."
                         value={activeSearch}
                         onChange={e => setActiveSearch(e.target.value)}
@@ -258,8 +258,8 @@ const Home = () => {
                       <select
                         value={sortBy}
                         onChange={e => setSortBy(e.target.value)}
-                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[130px] pl-4 pr-8 py-2.5 border border-border/50 rounded-full bg-card/50 backdrop-blur-xl text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
-                        style={{ background: 'rgba(30,30,30,0.8)' }}
+                        className="relative z-0 appearance-none w-full sm:w-auto min-w-[130px] pl-4 pr-8 py-2.5 border border-white/20 rounded-full bg-white/20 backdrop-blur-xl shadow-[0_4px_30px_rgba(255,255,255,0.05)] text-textSecondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm transition-all duration-300 cursor-pointer"
+                        style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
                       >
                         <option value="None">Sort By: None</option>
                         <option value="Category Wise">Category Wise</option>
